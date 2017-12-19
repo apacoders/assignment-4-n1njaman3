@@ -7,7 +7,6 @@ package assignment4;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  *
@@ -24,20 +23,19 @@ public class MockChat extends BaseChat implements ChatInterface {
 
     @Override
     public String chat(String chatString) {
-        boolean endChat = false;
-        while(endChat != true){
-            Scanner chatNow = new Scanner(System.in);
-            String chatInput = chatNow.nextLine();
-            if(chatInput.equalsIgnoreCase("Hello")){
-                System.out.println("Hello");
-            } else if(chatInput.equalsIgnoreCase("goodbye")){
-                endChat = true;
-                System.out.println("Goodbye");
+            if(chatString.equalsIgnoreCase("Hello")){
+                return "Computer> Hello";
+            } else if(chatString.equalsIgnoreCase("Goodbye")){
+                return "Computer> Goodbye";
             } else {
+
+                String randResponse = response.get(rand.nextInt(response.size()));
                 
+//                return "Computer> "+response[randResponse];
+                return "Computer>"+randResponse;
             }
-        }
     }
+    
 
     @Override
     public void addResponse(String response) {
